@@ -15,7 +15,7 @@ CREATE TABLE status_v2 (
     `statusId` INTEGER AUTO_INCREMENT PRIMARY KEY,
     `statusName` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'NO_STATUS',
     `statusDescription` VARCHAR(200),
-    `statusColor` VARCHAR(20) NOT NULL
+    `statusColor` VARCHAR(20) NOT NULL DEFAULT '#CCCCCC'
 );
 
 INSERT INTO status_v2(statusName,statusDescription,statusColor) 
