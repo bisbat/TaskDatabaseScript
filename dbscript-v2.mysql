@@ -19,7 +19,7 @@ CREATE TABLE status_v2 (
 );
 
 INSERT INTO status_v2(statusName,statusDescription,statusColor) 
-VALUES ('NO_STATUS','','#CCCCCC');
+VALUES ('NO_STATUS',null,'#CCCCCC');
 
 INSERT INTO status_v2(statusName,statusDescription,statusColor) 
 VALUES ('TO_DO','This item has not been started','#FFA500');
