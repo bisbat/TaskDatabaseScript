@@ -1,6 +1,16 @@
-CREATE DATABASE integrated1 CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+-- CREATE DATABASE integrated1 CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
-CREATE TABLE tasks_v2 (
+CREATE TABLE status (
+    `statusId` INTEGER AUTO_INCREMENT PRIMARY KEY,
+    `statusName` VARCHAR(50) NOT NULL UNIQUE ,
+    `statusDescription` VARCHAR(200),
+    `statusColor` VARCHAR(20) DEFAULT '#CCCCCC',
+     `createdOn` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updatedOn` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE task (
     `taskId` INTEGER AUTO_INCREMENT PRIMARY KEY,
     `taskTitle` VARCHAR(100) NOT NULL,
     `taskDescription` VARCHAR(500),
@@ -8,31 +18,35 @@ CREATE TABLE tasks_v2 (
     `statusId` INTEGER NOT NULL,
     `createdOn` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updatedOn` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (statusId) REFERENCES status_v2(statusId) ON DELETE RESTRICT
+    FOREIGN KEY (statusId) REFERENCES status (statusId) ON DELETE RESTRICT
 );
 
-CREATE TABLE status_v2 (
-    `statusId` INTEGER AUTO_INCREMENT PRIMARY KEY,
-    `statusName` VARCHAR(50) NOT NULL UNIQUE DEFAULT 'NO_STATUS',
-    `statusDescription` VARCHAR(200),
-    `statusColor` VARCHAR(20) NOT NULL DEFAULT '#CCCCCC'
-);
 
-INSERT INTO status_v2(statusName,statusDescription,statusColor) 
-VALUES ('NO_STATUS',null,'#CCCCCC');
+INSERT INTO status(statusName,statusDescription,statusColor) 
+VALUES ('No Status','The default status','#CCCCCC');
 
-INSERT INTO status_v2(statusName,statusDescription,statusColor) 
-VALUES ('TO_DO','This item has not been started','#FFA500');
+INSERT INTO status(statusName,statusDescription,statusColor) 
+VALUES ('To Do',null,'#FFA500');
 
-INSERT INTO status_v2(statusName,statusDescription,statusColor) 
-VALUES ('DOING','This item has been doing','#4169E1');
+INSERT INTO status(statusName,statusDescription,statusColor) 
+VALUES ('Doing','Being worked on','#4169E1');
 
-INSERT INTO status_v2(statusName,statusDescription,statusColor) 
-VALUES ('DONE','This item has not been done','#008000');
+INSERT INTO status(statusName,statusDescription,statusColor) 
+VALUES ('Done','Finished','#008000');
 
-select * from status_v2;
+-- INSERT INTO status(statusName
+-- ,statusDescription,statusColor) 
+-- VALUES ('Waiting',null,'#008000');
 
-INSERT INTO tasks_v2 (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+-- INSERT INTO status(statusName,statusDescription,statusColor) 
+-- VALUES ('Maximum001Maximum002Maximum003Maximum004Maximum005','Maximum001Maximum002Maximum003Maximum004Maximum005Maximum006Maximum007Maximum008Maximum009Maximum100Maximum001Maximum002Maximum003Maximum004Maximum005Maximum006Maximum007Maximum008Maximum009Maximum200','#008000');
+
+-- INSERT INTO status(statusName,statusDescription,statusColor) 
+-- VALUES (trim('     _trim_     '),trim('     _trim_     '),'#008000'); 
+
+select * from status;
+
+INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
 VALUES (
 'TaskTitle1TaskTitle2TaskTitle3TaskTitle4TaskTitle5TaskTitle6TaskTitle7TaskTitle8TaskTitle9TaskTitle0', 
 'Descripti1Descripti2Descripti3Descripti4Descripti5Descripti6Descripti7Descripti8Descripti9Descripti1Descripti1Descripti2Descripti3Descripti4Descripti5Descripti6Descripti7Descripti8Descripti9Descripti2Descripti1Descripti2Descripti3Descripti4Descripti5Descripti6Descripti7Descripti8Descripti9Descripti3Descripti1Descripti2Descripti3Descripti4Descripti5Descripti6Descripti7Descripti8Descripti9Descripti4Descripti1Descripti2Descripti3Descripti4Descripti5Descripti6Descripti7Descripti8Descripti9Descripti5', 
@@ -42,7 +56,7 @@ STR_TO_DATE('22/4/2024 09:00:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('22/4/2024 09:00:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO tasks_v2 (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
 VALUES (
 'Repository', 
 null, 
@@ -54,7 +68,7 @@ STR_TO_DATE('22/4/2024 14:00:00', '%d/%m/%Y %H:%i:%s')
 
 
 
-INSERT INTO tasks_v2(taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
 VALUES ( 
 'ดาต้าเบส', 
 'ສ້າງຖານຂໍ້ມູນ', 
@@ -64,7 +78,7 @@ STR_TO_DATE('22/4/2024 09:10:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('25/4/2024 00:00:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO tasks_v2(taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
 VALUES (
 '_Infrastructure_', 
 '_Setup containers_', 
@@ -74,4 +88,4 @@ STR_TO_DATE('22/4/2024 09:15:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('22/4/2024 10:00:00', '%d/%m/%Y %H:%i:%s')
 );
 
-select * from tasks_v2;
+select * from status;
