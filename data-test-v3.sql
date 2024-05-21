@@ -18,10 +18,10 @@ INSERT INTO status(statusName,statusDescription,statusColor)
 VALUES ('Waiting','The task is waiting for a resource','#00C4FF');
 
 INSERT INTO status(statusName,statusDescription,statusColor) 
-VALUES ('​Done','The task has been completed','#008000');
+VALUES ("Done",'The task has been completed','#008000');
 
 -- TASK_SORT_FILTER
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'NS01', 
 1, 
@@ -29,7 +29,7 @@ STR_TO_DATE('14/5/2024 09:00:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:00:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'TD01', 
 2, 
@@ -37,7 +37,7 @@ STR_TO_DATE('14/5/2024 09:10:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:10:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'IP01', 
 3, 
@@ -45,7 +45,7 @@ STR_TO_DATE('14/5/2024 09:20:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:20:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'TD02', 
 2, 
@@ -53,7 +53,7 @@ STR_TO_DATE('14/5/2024 09:30:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:30:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'DO01', 
 7, 
@@ -61,10 +61,12 @@ STR_TO_DATE('14/5/2024 09:40:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:40:00', '%d/%m/%Y %H:%i:%s')
 );
 
-INSERT INTO task (taskTitle, taskDescription, taskAssignees, statusId, createdOn, updatedOn)
+INSERT INTO task (taskTitle, statusId, createdOn, updatedOn)
 VALUES (
 'IP02', 
 3, 
 STR_TO_DATE('14/5/2024 09:50:00', '%d/%m/%Y %H:%i:%s'), 
 STR_TO_DATE('14/5/2024 09:50:00', '%d/%m/%Y %H:%i:%s')
 );
+
+commit;
