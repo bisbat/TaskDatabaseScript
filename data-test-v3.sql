@@ -69,4 +69,7 @@ STR_TO_DATE('14/5/2024 09:50:00', '%d/%m/%Y %H:%i:%s'),
 STR_TO_DATE('14/5/2024 09:50:00', '%d/%m/%Y %H:%i:%s')
 );
 
+INSERT INTO status_setting (statusSettingId, limitMaximumTask, maximumTask)
+VALUES (1, false, 10);
+
 commit;
