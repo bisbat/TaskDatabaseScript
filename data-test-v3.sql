@@ -1,6 +1,6 @@
 -- STATUS_SORT_FILTER
 INSERT INTO status(statusName,statusDescription,statusColor) 
-VALUES ('No Status','A status has not been assigned','#CCCCCC');
+VALUES ('No Status','A status has not been assigned','#CCCCCC');4
 
 INSERT INTO status(statusName,statusDescription,statusColor) 
 VALUES ('To Do','The task is included in the project','#FFA500');
